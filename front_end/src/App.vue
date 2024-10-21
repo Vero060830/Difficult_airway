@@ -1,9 +1,15 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
 
 <template>
+
+
+<van-tabbar v-model="active">
+  <van-tabbar-item name="home" icon="home-o"> <RouterLink to="/">Home</RouterLink></van-tabbar-item>
+  <van-tabbar-item name="search" icon="search"><RouterLink to="/about">About</RouterLink></van-tabbar-item>
+  <van-tabbar-item name="friends" icon="friends-o">标签</van-tabbar-item>
+  <van-tabbar-item name="setting" icon="setting-o">标签</van-tabbar-item>
+</van-tabbar>
+
+
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -11,8 +17,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+
+
+
       </nav>
     </div>
   </header>
@@ -20,6 +27,13 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+ const active = ref('home');
+
+</script>
 <style scoped>
 header {
   line-height: 1.5;
